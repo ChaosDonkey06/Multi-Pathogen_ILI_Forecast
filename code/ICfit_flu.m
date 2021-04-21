@@ -9,6 +9,7 @@ load AH
 load xmax_flu
 load xmin_flu
 load oevpara
+
 xmin=xmin_flu(:,region,pid);
 xmax=xmax_flu(:,region,pid);
 %%%%%%%%%%%%%%%%check if there is activity
@@ -19,6 +20,7 @@ obs=obs-min(obs);
 minidx=find(obs==min(obs));
 minidx=minidx(end);
 onsetweek=1;
+
 for i=max(3,minidx):ftime
     if (obs(i-2)>=threshold)&&(obs(i-1)>=threshold)&&(obs(i)>=threshold)
         activity=1;
@@ -69,7 +71,7 @@ else%there is activity
 end
 
 
-function pred=analogues(obs,signals,pid,season,region,scale)
+function pred = analogues(obs,signals,pid,season,region,scale)
 if pid==1
     v=14; alpha=0.3; base=1e-3;
 elseif pid==2
@@ -77,9 +79,10 @@ elseif pid==2
 elseif pid==3
     v=14; alpha=1; base=1e-3;
 end
-n=length(obs);
-candidates=squeeze(signals(1:52,pid+2,:,region));
-candidates(:,season)=[];%remove cnt season
+n          = length(obs);
+candidates = squeeze(signals(1:52,pid+2,:,region));
+candidates(:,season)=[]; %remove cnt season
+
 dist=zeros(size(candidates,2),1);
 for i=1:size(candidates,2)
     temp=candidates(1:n,i);

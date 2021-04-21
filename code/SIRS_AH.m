@@ -131,6 +131,5 @@ end
 x(1,:)=Sr(1,:,tcnt+1);
 x(2,:)=Sr(2,:,tcnt+1);
 x(3,:)=sum(Incidence)/N;
-end    
-    
+end
 end

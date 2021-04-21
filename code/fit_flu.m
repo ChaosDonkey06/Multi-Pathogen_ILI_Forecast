@@ -4,9 +4,10 @@ N=1e5;
 Sl=0.3*N; Su=1*N;
 Sstep=500;
 Il=0; Iu=100;
-Istep=(Iu-Il)/5;
-num_S=(Su-Sl)/Sstep;
-num_I=(Iu-Il)/Istep;
+
+Istep = (Iu-Il)/5;
+num_S = (Su-Sl)/Sstep;
+num_I = (Iu-Il)/Istep;
 
 minMAE=1e5;
 bestx=zeros(7,1);
